@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toys & Gift House | Tufanganj</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f8f9fa; color: #333; scroll-behavior: smooth; }
+        header { background: #ff4757; color: white; padding: 40px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        .sticky-top { position: sticky; top: 0; z-index: 1000; background: #fff; border-bottom: 2px solid #ff4757; }
+        .search-container { padding: 15px 20px 5px 20px; text-align: center; }
+        #searchInput { width: 90%; max-width: 500px; padding: 12px 25px; border-radius: 30px; border: 2px solid #ff4757; font-size: 1rem; outline: none; }
+        
+        .category-container { padding: 10px; text-align: center; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .cat-btn { background: #f1f2f6; border: none; padding: 10px 18px; border-radius: 25px; cursor: pointer; font-weight: 600; color: #57606f; transition: 0.3s; }
+        .cat-btn.active { background: #ff4757; color: white; }
+
+        .container { padding: 25px; max-width: 1200px; margin: auto; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; padding: 20px; border: 1px solid #eee; display: flex; flex-direction: column; transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        
+        .product-img { width: 100%; height: 220px; object-fit: contain; border-radius: 15px; margin-bottom: 15px; background: #fff; }
+        .placeholder-img { width: 100%; height: 220px; background: #ffe3e3; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: #ff4757; font-weight: bold; margin-bottom: 15px; border: 2px dashed #ff4757; }
+        
+        h3 { margin: 10px 0; color: #2f3542; font-size: 1.2rem; text-transform: capitalize; }
+        .price { color: #ff4757; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+        .desc { font-size: 0.9rem; color: #747d8c; margin-bottom: 20px; flex-grow: 1; line-height: 1.4; }
+        
+        .buy-btn { background: #25d366; color: white; padding: 14px 20px; text-decoration: none; border-radius: 50px; font-weight: bold; display: block; transition: 0.3s; }
+        .buy-btn:hover { background: #128c7e; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+
+        footer { background: #2f3542; color: white; padding: 50px 20px; text-align: center; margin-top: 60px; }
+        .footer-info { opacity: 0.8; font-size: 0.9rem; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🧸 Toys & Gift House</h1>
+    <p>Your Favorite Gift Shop in Tufanganj</p>
+</header>
+
+<div class="sticky-top">
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="What are you looking for?">
+    </div>
+    <div class="category-container">
+        <button class="cat-btn active" onclick="filterCategory('all', event)">All Items</button>
+        <button class="cat-btn" onclick="filterCategory('Kids Toy', event)">Kids Toys</button>
+        <button class="cat-btn" onclick="filterCategory('Kids essential', event)">Kids Essentials</button>
+        <button class="cat-btn" onclick="filterCategory('Home Decore', event)">Home Decor</button>
+        <button class="cat-btn" onclick="filterCategory('Gifts', event)">Gifts</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="product-grid" id="productGrid">
+
+        <div class="product-card" data-category="Kids Toy">
+            <img src="https://i.ibb.co/ymKbZ9Ms/slime.jpg" class="product-img" alt="Slime Lab">
+            <h3>My Slime Lab</h3>
+            <p class="desc">A fun and educational chemistry project for kids to create their own slime.</p>
+            <div class="price">₹280</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: My Slime Lab (₹280)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids Toy">
+            <img src="https://i.ibb.co/9HKwBf2C/avengers.jpg" class="product-img" alt="Avengers Toys">
+            <h3>Avengers Toys</h3>
+            <p class="desc">Official Endgame series super hero action figures.</p>
+            <div class="price">₹150</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Avengers Toys (₹150)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids Toy">
+            <img src="https://i.ibb.co/qYZ9fdYd/mag-ludo.jpg" class="product-img" alt="Magnetic Ludo">
+            <h3>Magnetic Ludo</h3>
+            <p class="desc">Magnetic ludo snakes and ladders board game.</p>
+            <div class="price">₹280</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Magnetic Ludo (₹280)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids Toy">
+            <img src="https://i.ibb.co/mrLmYyws/thar.jpg" class="product-img" alt="Thar Car">
+            <h3>Thar Car</h3>
+            <p class="desc">1:36 scale real thar model toy car.</p>
+            <div class="price">₹220</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Thar Car (₹220)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids Toy">
+            <img src="https://i.ibb.co/zhptTMV3/66-block.jpg" class="product-img" alt="Toy Blocks">
+            <h3>Toy Block</h3>
+            <p class="desc">66 pcs building block set for kids.</p>
+            <div class="price">₹120</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Toy Block (₹120)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids essential">
+            <img src="https://i.ibb.co/prR8bJfP/bag.jpg" class="product-img" alt="Kids Bag">
+            <h3>Kids 3D Bag</h3>
+            <p class="desc">High-quality 3D printed cartoon school bag.</p>
+            <div class="price">₹230</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Kids 3D Bag (₹230)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids essential">
+            <img src="https://i.ibb.co/4RgL6kCL/viral.jpg" class="product-img" alt="Viral Lunch Box">
+            <h3>Viral Lunch Box</h3>
+            <p class="desc">Compact and trendy lunch box for healthy meals.</p>
+            <div class="price">₹150</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Viral Lunch Box (₹150)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids essential">
+            <img src="https://i.ibb.co/YTWXRyt8/burger.png" class="product-img" alt="Burger Box">
+            <h3>Burger Lunch Box</h3>
+            <p class="desc">Fun 3 shelf burger shaped lunch box.</p>
+            <div class="price">₹120</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Burger Lunch Box (₹120)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids essential">
+            <img src="https://i.ibb.co/0WXG2L8/nice.jpg" class="product-img" alt="Nice Bottle">
+            <h3>Nice Bottle</h3>
+            <p class="desc">Viral glass bottle for school or travel.</p>
+            <div class="price">₹60</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Nice Bottle (₹60)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids essential">
+            <img src="https://i.ibb.co/Pv9qGDgj/paras-lunch.jpg" class="product-img" alt="Paras Lunch Box">
+            <h3>Paras Lunch Box</h3>
+            <p class="desc">HD printed image lunch box for kids.</p>
+            <div class="price">₹100</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Paras Lunch Box (₹100)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids essential">
+            <img src="https://i.ibb.co/WWG4vM6B/horn-bottle.jpg" class="product-img" alt="Horn Bottle">
+            <h3>Viral School Bottle</h3>
+            <p class="desc">Trendy school bottle with horn on the cap.</p>
+            <div class="price">₹120</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Viral School Bottle (₹120)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids essential">
+            <div class="placeholder-img">Photo Coming Soon</div>
+            <h3>Bathtub (Small)</h3>
+            <p class="desc">Comfortable baby bathtub for kids aged 0-3 years.</p>
+            <div class="price">₹350</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Bathtub Small (₹350)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Kids essential">
+            <div class="placeholder-img">Photo Coming Soon</div>
+            <h3>Bathtub (Big)</h3>
+            <p class="desc">Spacious and durable baby bathtub for kids.</p>
+            <div class="price">₹450</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Bathtub Big (₹450)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore">
+            <img src="https://i.ibb.co/nNrn8ds2/c1mqg-512.webp" class="product-img" alt="Teaspoon Set">
+            <h3>Teaspoon Set</h3>
+            <p class="desc">Stylish stand with 25 different spoon types.</p>
+            <div class="price">₹249</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Teaspoon Set (₹249)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore">
+            <div class="placeholder-img">Photo Coming Soon</div>
+            <h3>Table Lamp</h3>
+            <p class="desc">Home decor mushroom shape lamp.</p>
+            <div class="price">₹300</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Table Lamp (₹300)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore">
+            <div class="placeholder-img">Photo Coming Soon</div>
+            <h3>Metal Ganesha</h3>
+            <p class="desc">Candle and deeya stand for home decor.</p>
+            <div class="price">₹170</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Metal Ganesha (₹170)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+        <div class="product-card" data-category="Gifts">
+            <img src="https://i.ibb.co/mCy1gLTG/TT.jpg" class="product-img" alt="Table Tennis">
+            <h3>Table Tennis Set</h3>
+            <p class="desc">Wooden bats with durable PVC coating.</p>
+            <div class="price">₹150</div>
+            <a href="https://wa.me/917980595575?text=Hi! I want to buy: Table Tennis Set (₹150)" class="buy-btn">Order on WhatsApp</a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <h3>📍 Toys & Gift House</h3>
+    <p>Tufanganj, Coochbehar, West Bengal</p>
+    <div class="footer-info">© 2026 Toys & Gift House. Fast WhatsApp Ordering.</div>
+</footer>
+
+<script>
+    function filterCategory(category, event) {
+        let buttons = document.getElementsByClassName('cat-btn');
+        for (let btn of buttons) { btn.classList.remove('active'); }
+        event.currentTarget.classList.add('active');
+
+        let cards = document.getElementsByClassName('product-card');
+        for (let card of cards) {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        }
+    }
+
+    function filterProducts() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.querySelectorAll('.product-card');
+        cards.forEach(card => {
+            let title = card.querySelector('h3').innerText.toLowerCase();
+            let desc = card.querySelector('.desc').innerText.toLowerCase();
+            if (title.includes(input) || desc.includes(input)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
