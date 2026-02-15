@@ -5,33 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toys & Gift House | Tufanganj</title>
     <style>
-        /* System Fonts & Smooth UI */
+        /* System Fonts for Speed */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
             margin: 0; background-color: #f8f9fa; color: #333; scroll-behavior: smooth; 
         }
         header { background: #ff4757; color: white; padding: 30px 20px; text-align: center; }
         .sticky-top { position: sticky; top: 0; z-index: 1000; background: #fff; border-bottom: 2px solid #ff4757; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .search-container { padding: 15px 20px 5px 20px; text-align: center; }
-        #searchInput { width: 90%; max-width: 500px; padding: 12px 25px; border-radius: 30px; border: 2px solid #ff4757; font-size: 1rem; outline: none; }
-        
-        .filter-section { padding: 5px 10px 15px 10px; text-align: center; }
+        .filter-section { padding: 15px 10px; text-align: center; }
         .filter-label { font-size: 0.7rem; font-weight: bold; color: #999; text-transform: uppercase; margin-bottom: 5px; display: block; }
-        .filter-group { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
-        
-        .btn { background: #f1f2f6; border: none; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: 600; color: #57606f; transition: 0.2s; font-size: 0.8rem; }
+        .filter-group { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+        .btn { background: #f1f2f6; border: none; padding: 10px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; color: #57606f; transition: 0.2s; font-size: 0.85rem; }
         .btn.active { background: #ff4757; color: white; }
-
         .container { padding: 20px; max-width: 1200px; margin: auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
         .product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; padding: 15px; border: 1px solid #eee; display: flex; flex-direction: column; }
         .product-img { width: 100%; height: 180px; object-fit: contain; border-radius: 10px; margin-bottom: 10px; background: #fff; }
-        .placeholder-img { width: 100%; height: 180px; background: #ffe3e3; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #ff4757; font-size: 0.8rem; margin-bottom: 10px; border: 1px dashed #ff4757; }
-        
         h3 { margin: 5px 0; color: #2f3542; font-size: 1.1rem; text-transform: capitalize; }
         .price { color: #ff4757; font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; }
         .desc { font-size: 0.8rem; color: #747d8c; margin-bottom: 15px; flex-grow: 1; line-height: 1.3; }
-        .buy-btn { background: #25d366; color: white; padding: 12px; text-decoration: none; border-radius: 50px; font-weight: bold; display: block; font-size: 0.9rem; }
+        .buy-btn { background: #25d366; color: white; padding: 12px; text-decoration: none; border-radius: 50px; font-weight: bold; display: block; font-size: 0.9rem; transition: 0.3s; }
+        .buy-btn:hover { background: #128c7e; }
         footer { background: #2f3542; color: white; padding: 30px; text-align: center; margin-top: 40px; }
     </style>
 </head>
@@ -39,13 +33,10 @@
 
 <header>
     <h1>🧸 Toys & Gift House</h1>
-    <p>Quality Gifts for Your Loved Ones</p>
+    <p>Premium Quality Gifts • Tufanganj</p>
 </header>
 
 <div class="sticky-top">
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="applyFilters()" placeholder="Search 50+ items...">
-    </div>
     <div class="filter-section">
         <span class="filter-label">Categories</span>
         <div class="filter-group">
@@ -55,9 +46,9 @@
             <button class="btn cat-btn" onclick="setCategory('Home Decore', this)">Decor</button>
             <button class="btn cat-btn" onclick="setCategory('Gifts', this)">Gifts</button>
         </div>
-        <span class="filter-label">Budget</span>
+        <span class="filter-label">Shop by Budget</span>
         <div class="filter-group">
-            <button class="btn price-btn active" onclick="setPriceRange('all', this)">All</button>
+            <button class="btn price-btn active" onclick="setPriceRange('all', this)">All Prices</button>
             <button class="btn price-btn" onclick="setPriceRange('0-99', this)">Under 99</button>
             <button class="btn price-btn" onclick="setPriceRange('100-199', this)">100-199</button>
             <button class="btn price-btn" onclick="setPriceRange('200-349', this)">200-349</button>
@@ -71,138 +62,158 @@
 
         <div class="product-card" data-category="Kids Toy" data-price="280">
             <img src="https://i.ibb.co/ymKbZ9Ms/slime.jpg" class="product-img" loading="lazy">
-            <h3>My Slime Lab</h3>
-            <p class="desc">Educational chemistry project for kids.</p>
-            <div class="price">₹280</div>
-            <a href="https://wa.me/917980595575?text=Order: Slime Lab" class="buy-btn">WhatsApp Order</a>
+            <h3>My Slime Lab</h3><p class="desc">Educational chemistry project.</p><div class="price">₹280</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *My Slime Lab* (₹280)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids Toy" data-price="150">
             <img src="https://i.ibb.co/9HKwBf2C/avengers.jpg" class="product-img" loading="lazy">
-            <h3>Avengers Toys</h3>
-            <p class="desc">Endgame superhero figures.</p>
-            <div class="price">₹150</div>
-            <a href="https://wa.me/917980595575?text=Order: Avengers Toys" class="buy-btn">WhatsApp Order</a>
+            <h3>Avengers Toys</h3><p class="desc">Endgame superhero figures.</p><div class="price">₹150</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Avengers Toys* (₹150)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids Toy" data-price="280">
             <img src="https://i.ibb.co/qYZ9fdYd/mag-ludo.jpg" class="product-img" loading="lazy">
-            <h3>Magnetic Ludo</h3>
-            <p class="desc">Magnetic ludo snakes and ladders.</p>
-            <div class="price">₹280</div>
-            <a href="https://wa.me/917980595575?text=Order: Magnetic Ludo" class="buy-btn">WhatsApp Order</a>
+            <h3>Magnetic Ludo</h3><p class="desc">Snakes and ladders set.</p><div class="price">₹280</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Magnetic Ludo* (₹280)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids Toy" data-price="220">
             <img src="https://i.ibb.co/mrLmYyws/thar.jpg" class="product-img" loading="lazy">
-            <h3>Thar Car</h3>
-            <p class="desc">1:36 scale real model car.</p>
-            <div class="price">₹220</div>
-            <a href="https://wa.me/917980595575?text=Order: Thar Car" class="buy-btn">WhatsApp Order</a>
+            <h3>Thar Car</h3><p class="desc">1:36 scale real model.</p><div class="price">₹220</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Thar Car* (₹220)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids Toy" data-price="120">
             <img src="https://i.ibb.co/zhptTMV3/66-block.jpg" class="product-img" loading="lazy">
-            <h3>Toy Block</h3>
-            <p class="desc">66 pcs building block set.</p>
-            <div class="price">₹120</div>
-            <a href="https://wa.me/917980595575?text=Order: Toy Block" class="buy-btn">WhatsApp Order</a>
+            <h3>Toy Block</h3><p class="desc">44 pcs building block set.</p><div class="price">₹120</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Toy Block* (₹120)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Kids Toy" data-price="230">
+            <img src="https://i.ibb.co/qMPPFyGZ" class="product-img" loading="lazy">
+            <h3>Musical Elephant</h3><p class="desc">Walking toy with lights.</p><div class="price">₹230</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Musical Elephant* (₹230)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids essential" data-price="230">
             <img src="https://i.ibb.co/prR8bJfP/bag.jpg" class="product-img" loading="lazy">
-            <h3>Kids 3D Bag</h3>
-            <p class="desc">High-quality printed school bag.</p>
-            <div class="price">₹230</div>
-            <a href="https://wa.me/917980595575?text=Order: 3D Bag" class="buy-btn">WhatsApp Order</a>
+            <h3>Kids 3D Bag</h3><p class="desc">Cartoon printed school bag.</p><div class="price">₹230</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Kids 3D Bag* (₹230)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids essential" data-price="150">
             <img src="https://i.ibb.co/4RgL6kCL/viral.jpg" class="product-img" loading="lazy">
-            <h3>Viral Lunch Box</h3>
-            <p class="desc">Trendy lunch box for kids.</p>
-            <div class="price">₹150</div>
-            <a href="https://wa.me/917980595575?text=Order: Viral Lunch Box" class="buy-btn">WhatsApp Order</a>
+            <h3>Viral Lunch Box</h3><p class="desc">Trendy healthy meal box.</p><div class="price">₹150</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Viral Lunch Box* (₹150)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids essential" data-price="120">
             <img src="https://i.ibb.co/YTWXRyt8/burger.png" class="product-img" loading="lazy">
-            <h3>Burger Lunch Box</h3>
-            <p class="desc">Fun 3 shelf burger shaped box.</p>
-            <div class="price">₹120</div>
-            <a href="https://wa.me/917980595575?text=Order: Burger Box" class="buy-btn">WhatsApp Order</a>
+            <h3>Burger Lunch Box</h3><p class="desc">3 shelf burger shape.</p><div class="price">₹120</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Burger Lunch Box* (₹120)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids essential" data-price="60">
             <img src="https://i.ibb.co/0WXG2L8/nice.jpg" class="product-img" loading="lazy">
-            <h3>Nice Bottle</h3>
-            <p class="desc">Viral glass bottle.</p>
-            <div class="price">₹60</div>
-            <a href="https://wa.me/917980595575?text=Order: Nice Bottle" class="buy-btn">WhatsApp Order</a>
+            <h3>Nice Bottle</h3><p class="desc">Viral glass bottle.</p><div class="price">₹60</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Nice Bottle* (₹60)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids essential" data-price="100">
             <img src="https://i.ibb.co/Pv9qGDgj/paras-lunch.jpg" class="product-img" loading="lazy">
-            <h3>Paras Lunch Box</h3>
-            <p class="desc">HD printed image lunch box.</p>
-            <div class="price">₹100</div>
-            <a href="https://wa.me/917980595575?text=Order: Paras Lunch Box" class="buy-btn">WhatsApp Order</a>
+            <h3>Paras Lunch Box</h3><p class="desc">HD printed image box.</p><div class="price">₹100</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Paras Lunch Box* (₹100)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids essential" data-price="120">
             <img src="https://i.ibb.co/WWG4vM6B/horn-bottle.jpg" class="product-img" loading="lazy">
-            <h3>Viral School Bottle</h3>
-            <p class="desc">Bottle with horn on the cap.</p>
-            <div class="price">₹120</div>
-            <a href="https://wa.me/917980595575?text=Order: Horn Bottle" class="buy-btn">WhatsApp Order</a>
+            <h3>Viral School Bottle</h3><p class="desc">Bottle with horn cap.</p><div class="price">₹120</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Viral School Bottle* (₹120)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids essential" data-price="350">
-            <div class="placeholder-img">Photo Coming Soon</div>
-            <h3>Bathtub (Small)</h3>
-            <p class="desc">For kids aged 0-3 years.</p>
-            <div class="price">₹350</div>
-            <a href="https://wa.me/917980595575?text=Order: Small Bathtub" class="buy-btn">WhatsApp Order</a>
+            <img src="https://i.ibb.co/VWW30CmL" class="product-img" loading="lazy">
+            <h3>Bathtub (Small)</h3><p class="desc">For kids 0-3 years.</p><div class="price">₹350</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Small Bathtub* (₹350)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Kids essential" data-price="450">
-            <div class="placeholder-img">Photo Coming Soon</div>
-            <h3>Bathtub (Big)</h3>
-            <p class="desc">Spacious and durable baby bathtub.</p>
-            <div class="price">₹450</div>
-            <a href="https://wa.me/917980595575?text=Order: Big Bathtub" class="buy-btn">WhatsApp Order</a>
+            <img src="https://i.ibb.co/S4jnwVgG" class="product-img" loading="lazy">
+            <h3>Bathtub (Big)</h3><p class="desc">Durable baby bathtub.</p><div class="price">₹450</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Big Bathtub* (₹450)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Home Decore" data-price="249">
-            <img src="https://i.ibb.co/nNrn8ds2/c1mqg-512.webp" class="product-img" loading="lazy">
-            <h3>Teaspoon Set</h3>
-            <p class="desc">Stylish stand with 25 spoons.</p>
-            <div class="price">₹249</div>
-            <a href="https://wa.me/917980595575?text=Order: Teaspoon Set" class="buy-btn">WhatsApp Order</a>
-        </div>
-
-        <div class="product-card" data-category="Home Decore" data-price="300">
-            <div class="placeholder-img">Photo Coming Soon</div>
-            <h3>Table Lamp</h3>
-            <p class="desc">Mushroom shape home decor lamp.</p>
-            <div class="price">₹300</div>
-            <a href="https://wa.me/917980595575?text=Order: Table Lamp" class="buy-btn">WhatsApp Order</a>
+            <img src="https://i.ibb.co/DH7qvX0z" class="product-img" loading="lazy">
+            <h3>Teaspoon Set</h3><p class="desc">Stylish stand with 25 spoons.</p><div class="price">₹249</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Teaspoon Set* (₹249)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Home Decore" data-price="170">
-            <div class="placeholder-img">Photo Coming Soon</div>
-            <h3>Metal Ganesha</h3>
-            <p class="desc">Candle and deeya stand.</p>
-            <div class="price">₹170</div>
-            <a href="https://wa.me/917980595575?text=Order: Metal Ganesha" class="buy-btn">WhatsApp Order</a>
+            <img src="https://i.ibb.co/3yK72dmW" class="product-img" loading="lazy">
+            <h3>Metal Ganesha</h3><p class="desc">Candle and deeya stand.</p><div class="price">₹170</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Metal Ganesha* (₹170)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore" data-price="120">
+            <img src="https://i.ibb.co/FqHY7HK3" class="product-img" loading="lazy">
+            <h3>4 Container Combo</h3><p class="desc">Food grade container set.</p><div class="price">₹120</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *4 Container Combo* (₹120)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore" data-price="140">
+            <img src="https://i.ibb.co/9k9S90JX" class="product-img" loading="lazy">
+            <h3>Buddha</h3><p class="desc">Smoke fountain decor.</p><div class="price">₹140</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Buddha Fountain* (₹140)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore" data-price="35">
+            <img src="https://i.ibb.co/tkp6FfZ" class="product-img" loading="lazy">
+            <h3>Rainbow Clip</h3><p class="desc">Quality cloth clips.</p><div class="price">₹35</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Rainbow Clips* (₹35)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore" data-price="270">
+            <img src="https://i.ibb.co/M5NVVrTf" class="product-img" loading="lazy">
+            <h3>Rajasthani Musician</h3><p class="desc">Metal home decor.</p><div class="price">₹270</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Rajasthani Musician* (₹270)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore" data-price="100">
+            <img src="https://i.ibb.co/yc0rqssn" class="product-img" loading="lazy">
+            <h3>Owl Shape Pot</h3><p class="desc">Artificial plant decor.</p><div class="price">₹100</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Owl Shape Pot* (₹100)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Home Decore" data-price="320">
+            <img src="https://i.ibb.co/ZzBGwrNW" class="product-img" loading="lazy">
+            <h3>LED Table Lamp</h3><p class="desc">Fancy glass lamp.</p><div class="price">₹320</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *LED Table Lamp* (₹320)." class="buy-btn">WhatsApp Order</a>
         </div>
 
         <div class="product-card" data-category="Gifts" data-price="150">
             <img src="https://i.ibb.co/mCy1gLTG/TT.jpg" class="product-img" loading="lazy">
-            <h3>Table Tennis Set</h3>
-            <p class="desc">Wooden bats with PVC coating.</p>
-            <div class="price">₹150</div>
-            <a href="https://wa.me/917980595575?text=Order: TT Set" class="buy-btn">WhatsApp Order</a>
+            <h3>Table Tennis Set</h3><p class="desc">Wooden bats set.</p><div class="price">₹150</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *TT Set* (₹150)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Gifts" data-price="230">
+            <img src="https://i.ibb.co/0yyfpFSf" class="product-img" loading="lazy">
+            <h3>Bike Keychain</h3><p class="desc">Full metal keychain.</p><div class="price">₹230</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Bike Keychain* (₹230)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Gifts" data-price="120">
+            <img src="https://i.ibb.co/s95QWVxP" class="product-img" loading="lazy">
+            <h3>Home Keychain</h3><p class="desc">Wooden key holder.</p><div class="price">₹120</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *Home Key Holder* (₹120)." class="buy-btn">WhatsApp Order</a>
+        </div>
+
+        <div class="product-card" data-category="Gifts" data-price="150">
+            <img src="https://i.ibb.co/DgVKgqjd" class="product-img" loading="lazy">
+            <h3>House Keychain</h3><p class="desc">Wooden key holder.</p><div class="price">₹150</div>
+            <a href="https://wa.me/917980595575?text=Hello! I want to buy *House Key Holder* (₹150)." class="buy-btn">WhatsApp Order</a>
         </div>
 
     </div>
@@ -231,7 +242,6 @@
     }
 
     function applyFilters() {
-        let search = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.querySelectorAll('.product-card');
         let min = 0, max = 9999;
         if (currentPriceRange !== 'all') {
@@ -241,13 +251,9 @@
         cards.forEach(card => {
             let price = parseInt(card.getAttribute('data-price'));
             let category = card.getAttribute('data-category');
-            let title = card.querySelector('h3').innerText.toLowerCase();
-
             let matchCat = (currentCategory === 'all' || category === currentCategory);
             let matchPrice = (price >= min && price <= max);
-            let matchSearch = (title.includes(search));
-
-            card.style.display = (matchCat && matchPrice && matchSearch) ? "flex" : "none";
+            card.style.display = (matchCat && matchPrice) ? "flex" : "none";
         });
     }
 </script>
